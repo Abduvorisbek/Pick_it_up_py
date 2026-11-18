@@ -1,0 +1,18 @@
+class Shop:
+    def __init__(self, name, products=None):
+        self.name = name
+        self.products = products if products is not None else []
+
+    def show_products(self):
+        print("\nPRODUCTS:")
+        if not self.products:
+            print("No products available.")
+        for index, product in enumerate(self.products, start=1):
+            print(f"{index}. ", end="")
+            product.show()
+
+    def find_product(self, product_name):
+        for product in self.products:
+            if product.name.lower() == product_name.strip().lower():
+                return product
+        return None
